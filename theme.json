@@ -105,8 +105,8 @@
             }
           ],
           "fontFamily": "\"Source Serif Pro\", serif",
-          "name": "Source Serif Pro",
-          "slug": "source-serif-pro"
+          "name": "Text - Emphasised",
+          "slug": "text-emphasised"
         },
         {
           "fontFace": [
@@ -120,8 +120,23 @@
             }
           ],
           "fontFamily": "\"Roboto Flex\", \"Helvetica Neue\", sans-serif",
-          "name": "Roboto Flex",
-          "slug": "roboto-flex"
+          "name": "Text - Plain",
+          "slug": "text-plain"
+        },
+        {
+          "fontFace": [
+            {
+              "fontFamily": "Funnel Sans",
+              "fontStyle": "normal",
+              "fontWeight": "300 800",
+              "src": [
+                "https://fonts.gstatic.com/s/funnelsans/v1/OpNIno8Dg9bX6Bsp3Wq69Tpyfhg.woff2"
+              ]
+            }
+          ],
+          "fontFamily": "\"Funnel Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+          "name": "Heading",
+          "slug": "heading"
         }
       ],
       "fontSizes": [
@@ -195,6 +210,7 @@
     "elements": {
       "heading": {
 				"typography": {
+          "fontFamily": "var:preset|font-family|heading",
 					"fontWeight": "300",
 					"letterSpacing": "-0.02em",
 					"lineHeight": "1.02"
@@ -202,7 +218,7 @@
 			}
     },
     "typography": {
-      "fontFamily": "var:preset|font-family|roboto-flex",
+      "fontFamily": "var:preset|font-family|system-font",
       "fontSize": "var:preset|font-size|medium",
       "fontWeight": "400",
       "lineHeight": "1.6"
