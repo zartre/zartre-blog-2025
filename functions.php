@@ -12,4 +12,17 @@ function meta_theme_color(){
     <meta name="theme-color" content="#fff6f4">
 <?php
 }
-add_action('wp_head', 'meta_theme_color');
+function gtag_js(){
+?>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KWWBK7EN1L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-KWWBK7EN1L');
+    </script>
+<?php
+}
+add_action('wp_head', 'gtag_js');
