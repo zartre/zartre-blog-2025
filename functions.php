@@ -7,12 +7,13 @@ if ( ! function_exists('zarte_twentyfive_enqueue_style') ) {
     add_action('wp_enqueue_scripts', 'zarte_twentyfive_enqueue_style');
 }
 
-function meta_theme_color(){
+function meta_theme_color() {
 ?>
     <meta name="theme-color" content="#fff6f4">
 <?php
 }
-function gtag_js(){
+
+function gtag_js() {
 ?>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KWWBK7EN1L"></script>
@@ -25,4 +26,19 @@ function gtag_js(){
     </script>
 <?php
 }
+
+function og_image() {
+    if( is_single() ) {
+        $feat_img = get_the_post_thumbnail_url(get_the_ID(), 'full');
+        if ($feat_img == false) {
+            $feat_img = get_stylesheet_directory_uri() . '/images/ogimage.png';
+        }
+        echo '<meta property="og:image" content="' . $feat_img . '" />';
+    }
+}
+
+// TODO: Add required OG tags: title, url
+
+add_action('wp_head', 'meta_theme_color');
 add_action('wp_head', 'gtag_js');
+add_action('wp_head', 'og_image');
