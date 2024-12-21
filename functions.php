@@ -28,9 +28,14 @@ function gtag_js() {
 }
 
 function og_required() {
+    $site_name = get_bloginfo('name');
     echo '<meta property="og:url" content="' . get_permalink() . '" />';
+    echo '<meta property="og:site_name" content="' . $site_name . '" />';
+    echo '<meta name="twitter:creator" content="@zartre" />';
     if( is_single() ) {
-        echo '<meta property="og:title" content="' . get_the_title() . ' - ' . get_bloginfo('name') . '" />';
+        echo '<meta property="og:title" content="' . get_the_title() . ' - ' . $site_name . '" />';
+        echo '<meta property="og:type" content="article" />';
+        echo '<meta name="twitter:title" content="' . get_the_title() . ' - ' . $site_name . '" />';
     }
 }
 
@@ -41,6 +46,8 @@ function og_image() {
             $feat_img = get_stylesheet_directory_uri() . '/images/ogimage.png';
         }
         echo '<meta property="og:image" content="' . $feat_img . '" />';
+        echo '<meta name="twitter:card" content="summary_large_image" />';
+        echo '<meta name="twitter:image" content="' . $feat_img . '" />';
     }
 }
 
