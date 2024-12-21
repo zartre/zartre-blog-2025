@@ -27,6 +27,13 @@ function gtag_js() {
 <?php
 }
 
+function og_required() {
+    echo '<meta property="og:url" content="' . get_permalink() . '" />';
+    if( is_single() ) {
+        echo '<meta property="og:title" content="' . get_the_title() . ' - ' . get_bloginfo('name') . '" />';
+    }
+}
+
 function og_image() {
     if( is_single() ) {
         $feat_img = get_the_post_thumbnail_url(get_the_ID(), 'full');
@@ -37,8 +44,7 @@ function og_image() {
     }
 }
 
-// TODO: Add required OG tags: title, url
-
 add_action('wp_head', 'meta_theme_color');
 add_action('wp_head', 'gtag_js');
+add_action('wp_head', 'og_required');
 add_action('wp_head', 'og_image');
